@@ -51,3 +51,21 @@ If we do not pass the correct `CALLVALUE` then it will revert, let's see our tar
 Solution : Puzzle 2
 ---
 Let's See First We see the `CALLVALUE` and `CODESIZE` we need to add `CALLVALUE` and `CODESIZE` given which is `a` in hex which is `10` in dec and then sub `CODESIZE - CALLVALUE` our target destination is instruction 6 so we want to make sure our `CODESIZE - CALLVALUE` = 6 then `CALLVALUE` will be 4. 
+
+
+# Puzzle 3 #
+
+```shell
+00      36      CALLDATASIZE
+01      56      JUMP
+02      FD      REVERT
+03      FD      REVERT
+04      5B      JUMPDEST
+05      00      STOP
+```
+
+1. `CALLDATASIZE` - Returns the size of the calldata in bytes.
+
+Solution : Puzzle 3
+---
+Our target destination is at instruction 4 and we need to pass valid `CALLDATASIZE` so we can pass this test (ex. 0xFFEECC calldata size is 3.) but we need to make jump to the instruction 4 so `CALLDATASIZE` need to be 4 `0xAABBCCDD` will be your solution.
