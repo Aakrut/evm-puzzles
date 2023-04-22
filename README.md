@@ -30,7 +30,7 @@ Solution : Puzzle 1
 ---
 If we do not pass the correct `CALLVALUE` then it will revert, let's see our target is to get to the `JUMPDEST` which is instruction 8 and so put the `CALLVALUE` as the 8 you will `JUMP` to the instruction 8.
 
-# Puzzle 2 #
+# Puzzle 2 
 
 ```shell
 00      34      CALLVALUE
@@ -53,7 +53,7 @@ Solution : Puzzle 2
 Let's See First We see the `CALLVALUE` and `CODESIZE` we need to add `CALLVALUE` and `CODESIZE` given which is `a` in hex which is `10` in dec and then sub `CODESIZE - CALLVALUE` our target destination is instruction 6 so we want to make sure our `CODESIZE - CALLVALUE` = 6 then `CALLVALUE` will be 4. 
 
 
-# Puzzle 3 #
+# Puzzle 3 
 
 ```shell
 00      36      CALLDATASIZE
@@ -70,7 +70,7 @@ Solution : Puzzle 3
 ---
 Our target destination is at instruction 4 and we need to pass valid `CALLDATASIZE` so we can pass this test (ex. 0xFFEECC calldata size is 3.) but we need to make jump to the instruction 4 so `CALLDATASIZE` need to be 4 `0xAABBCCDD` will be your solution.
 
-# Puzzle 4 #
+# Puzzle 4 
 
 ```shell
 00      34      CALLVALUE
@@ -92,3 +92,32 @@ Our target destination is at instruction 4 and we need to pass valid `CALLDATASI
 Solution : Puzzle 4
 --- 
 You need to know binary bit opeation so you can solve this challenge. First we have need add to `CALLVALUE` and our `CODESIZE` is `c` in (hex which is `12` in dec) and our jump destination is `0a` (binary) `10` (hex) so we  do is convert the `12` which is `1100` in binary and `10` in binary `1010`. and we make xor opeartion `1100 ^ 1010` we will get `0110` which is `6` in dec.`CALLVALUE` will be 6 answer to your puzzle.
+
+# Puzzle 5 
+
+```shell
+00      34          CALLVALUE
+01      80          DUP1
+02      02          MUL
+03      610100      PUSH2 0100
+06      14          EQ
+07      600C        PUSH1 0C
+09      57          JUMPI
+0A      FD          REVERT
+0B      FD          REVERT
+0C      5B          JUMPDEST
+0D      00          STOP
+0E      FD          REVERT
+0F      FD          REVERT
+```
+
+1. `DUP1` - Duplicate 1st stack item.
+2. `MUL` - Take Two top most items from the stack and multiply.
+3. `PUSH2` - Place 2 byte item on stack.
+4. `EQ` - Returns 1 if the last value on the stack is equal to the previous value, 0 otherwise.
+5. `PUSH1` - Place 1 byte item on stack.
+6. `JUMPI` - JUMPI is a conditional jump that takes top 2 elements from the stack i.e. destination and condition.
+
+Solution : Puzzle 5
+---
+First what we need is `CALLVALUE` that will duplicate and multiply with it (eg. `CALLVALUE` = 16 in `dec` but in `hex` 10 and `DUP1` 16 and we take both value from the stack and multiply becomes `100`) then add back to stack and `PUSH2` will add `0100` (in hex) and `EQ` checks if both the top most items are the same or not if yes then return 1 other wise 0. JUMPI same as JUMP but second position must not be 0 otherwise there will be no jump. Therefor `CALLVALUE` will be 16 answer to your puzzle.
