@@ -292,7 +292,7 @@ Here's the answer`60FD60005360016000F3` to your puzzle.
 1. `LT` - Take the top most 2 values from the stack `s[-2]`
 and `s[-1]`. if the condition statisfy then 1 otherwise 0.
 
-Solution 
+Solution : Puzzle 9
 --- 
 Let's see this first 👇
 ```shell
@@ -354,7 +354,7 @@ And Here's the answer to your puzzle `CALLDATA` is `0xAABBCCDD` which means `CAL
 
 4. `ADD` - Takes the top most 2 values from the stack s[-2] and s[-1] and perform addition and add value to the stack.
 
-Solution 
+Solution : Puzzle 10
 ---
 First Take Look at this 
 
