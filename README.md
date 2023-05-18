@@ -4,7 +4,7 @@
 
 ### You can Download the Repo from this [link.](https://github.com/fvictorio/evm-puzzles) Follow the instructions and you will be on your way to start hacking 🕵🏻.
 
-### [evm.codes](https://www.evm.codes/) and [ethervm.io](https://www.ethervm.io/) will help you all the way, take look at opcodes you are unaware of it and play around with it in playground.
+### [evm.codes](https://www.evm.codes/) will help you all the way, take look at opcodes you are unaware of it and play around with it in playground.
 
 ### [evm-puzzle: 01](./Puzzle-01.md)
 ### [evm-puzzle: 02](./Puzzle-02.md)
